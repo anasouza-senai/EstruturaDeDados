@@ -1,8 +1,10 @@
-﻿internal class Program
+﻿using System.Collections;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        // TRABALHADO COM LISTA ( LIST )
+        // TRABALHANDO COM LISTA ( LIST )
 
         /* Criando uma lista */
         List<string> frutas = new List<string>();
@@ -13,58 +15,139 @@
         frutas.Add("Goiaba");
         frutas.Add("Uva");
 
-        /* Imprimir os Itens da Lista */
-        Console.WriteLine("Minha lista de Frutas:");
-        foreach (string fruta in frutas)
-        {
-            Console.WriteLine(fruta);
-        }
+        /* Imprimir os Itens da Lista
+        /* Impressao da Lista em um única linha */
+        frutas.ForEach(Console.WriteLine);
 
-        Console.WriteLine();
+        Console.WriteLine(); // Pula linha em Branco
 
-        /* Imprimir elemento na posição específica */
+        /* Imprimir elemento no indice específico */
         Console.WriteLine("Fruta na indice 2: " + frutas[2]);
 
         /* Inserir um elemento no indice específico */
-        frutas.Insert(1, "Marcujá");
+        frutas.Insert(1, "Maracuja");
 
         /* Imprimindo a Lista novamente */
-        Console.WriteLine("Minha lista de Frutas:");
+        Console.WriteLine(); // Pula linha em Branco
+
+        Console.WriteLine("Minha Lista de Frutas:");
         foreach (string fruta in frutas)
         {
             Console.WriteLine(fruta);
         }
 
-        /* Alterar um elemento no Índice específico*/
+        /* Alterar um elemento no índice específico */
         frutas[4] = "Pêra";
-        Console.WriteLine();
-        Console.WriteLine("Minha lista de Frutas:");
+        /* Imprimindo a Lista novamente */
+        Console.WriteLine(); // Pula linha em Branco
+        Console.WriteLine("Minha Lista de Frutas:");
         foreach (string fruta in frutas)
         {
             Console.WriteLine(fruta);
         }
 
-        /* Remover elementos da lista no indice especifico*/
+        /* Remover elementos da lista no indice específico */
         frutas.RemoveAt(3);
 
+        /* Remover elementos pelo valor do conteúdo */
         frutas.Remove("Morango");
 
-        Console.WriteLine();
-        Console.WriteLine("Minha lista de Frutas:");
-        foreach (string fruta in frutas)
-        {
-            Console.WriteLine(fruta);
-        }
-
-
-
+        /* Imprimindo a Lista novamente */
+        Console.WriteLine(); // Pula linha em Branco
+        Console.WriteLine("Minha Lista de Frutas:");
         frutas.ForEach(Console.WriteLine);
 
-        Console.WriteLine();
-
-        Console.WriteLine("Fruta na indice 2: " + frutas[2]);
-
-        /* Apagar todos os elementos da listas */
+        /* Apagar todos os elementos da lista */
         frutas.Clear();
+
+        // TRABALHANDO COM DICIONARIO (DICTIONARY)
+        /* Criando um Dicionario de Dados */
+        Dictionary<int, string> carros = new Dictionary<int, string>();
+        /* Adicionar Dados a um Dicionário */
+        carros.Add(5, "Corsa");
+        carros.Add(10, "Fusca");
+        carros.Add(2, "Ford Ka");
+
+        Console.WriteLine(); // Pula linha em Branco
+        Console.WriteLine("============================");
+        Console.WriteLine(); // Pula linha em Branco
+
+        Console.WriteLine("Meu Dicionario de Carros:");
+        /* Imprimir um Dicionario de Dados */
+        foreach (var carro in carros)
+        {
+            Console.WriteLine($"{carro.Key} - {carro.Value}");
+
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            //TRABALHANDO COM FILA//
+            /*Criar um Fila (Queue)*/
+            Queue<string> filaBanco = new Queue<string>();
+
+            /* Adicionar Elementos em uma FILA */
+            filaBanco.Enqueue("André");
+            filaBanco.Enqueue("João");
+            filaBanco.Enqueue("Maria");
+            filaBanco.Enqueue("Bia");
+
+            foreach (var pessoa in filaBanco)
+            {
+                Console.WriteLine(pessoa);
+            }
+            filaBanco.Dequeue();
+
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+            foreach (var pessoa in filaBanco)
+            {
+                Console.WriteLine(pessoa);
+            }
+
+            bool achou = filaBanco.Contains("Bia");
+
+            if (achou == true)
+            {
+                Console.WriteLine("A pessoa está na Fila");
+            }
+            else
+            {
+                Console.WriteLine("A pessoa NÃO está na Fila");
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            // TRABALHANDO COM PILHA (STACK)
+            /* Criando uma Pilha */
+            Stack<string> livros = new Stack<string>();
+
+            /* Adicionar elementos em uma pilha */
+            livros.Push("Chapeuzinho Vermelho");
+            livros.Push("Branca de Neve e os Sete Anões");
+            livros.Push("Princesa e o Sapo");
+
+            foreach (var livro in livros)
+            {
+                Console.WriteLine(livro);
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            /* Remove o primeiro elemento da Pilha*/
+            livros.Pop();
+            foreach (var livro in livros)
+            {
+                Console.WriteLine(livro);
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+
+        }
     }
 }
