@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.Collections;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -75,6 +77,77 @@
         foreach (var carro in carros)
         {
             Console.WriteLine($"{carro.Key} - {carro.Value}");
+
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            //TRABALHANDO COM FILA//
+            /*Criar um Fila (Queue)*/
+            Queue<string> filaBanco = new Queue<string>();
+
+            /* Adicionar Elementos em uma FILA */
+            filaBanco.Enqueue("André");
+            filaBanco.Enqueue("João");
+            filaBanco.Enqueue("Maria");
+            filaBanco.Enqueue("Bia");
+
+            foreach (var pessoa in filaBanco)
+            {
+                Console.WriteLine(pessoa);
+            }
+            filaBanco.Dequeue();
+
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+            foreach (var pessoa in filaBanco)
+            {
+                Console.WriteLine(pessoa);
+            }
+
+            bool achou = filaBanco.Contains("Bia");
+
+            if (achou == true)
+            {
+                Console.WriteLine("A pessoa está na Fila");
+            }
+            else
+            {
+                Console.WriteLine("A pessoa NÃO está na Fila");
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            // TRABALHANDO COM PILHA (STACK)
+            /* Criando uma Pilha */
+            Stack<string> livros = new Stack<string>();
+
+            /* Adicionar elementos em uma pilha */
+            livros.Push("Chapeuzinho Vermelho");
+            livros.Push("Branca de Neve e os Sete Anões");
+            livros.Push("Princesa e o Sapo");
+
+            foreach (var livro in livros)
+            {
+                Console.WriteLine(livro);
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+            /* Remove o primeiro elemento da Pilha*/
+            livros.Pop();
+            foreach (var livro in livros)
+            {
+                Console.WriteLine(livro);
+            }
+            Console.WriteLine(); // Pula linha em Branco
+            Console.WriteLine("============================");
+            Console.WriteLine(); // Pula linha em Branco
+
+
         }
     }
 }
